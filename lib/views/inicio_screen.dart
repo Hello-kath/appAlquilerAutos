@@ -1,4 +1,7 @@
+
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:autos/views/register_screen.dart';
 
 class Inicio extends StatefulWidget {
   const Inicio({super.key});
@@ -21,18 +24,79 @@ class _InicioState extends State<Inicio> {
               color: const Color.fromARGB(255, 253, 244, 204),
             ),
           ),
-          
-          // Texto principal centrado y con estilos personalizados
-          const Align(
-            alignment: Alignment(0, -0.7), // Controla la posición (0 = centro, -1 = parte superior, 1 = parte inferior)
-            child:Text(
-              'Bienvenido',
-              style: TextStyle(
-                fontSize: 30, // Tamaño de fuente
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-                
+
+          // Barra superior con botones de navegación
+          Positioned(
+            top: 40, // Ajusta la altura de la barra superior
+            left: 0,
+            right: 0,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  // Botón de Iniciar sesión
+                  MouseRegion(
+                    onEnter: (_) => setState(() {}), // Cambia color al hacer hover
+                    onExit: (_) => setState(() {}),
+                    child: ElevatedButton(
+                      onPressed: () {},
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.orange, // Color de fondo por defecto
+                        foregroundColor: Colors.white, // Color del texto
+                        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                      ),
+                      child: const Text('Iniciar sesión'),
+                    ),
+                  ),
+                  // Botón de Registrarse
+                   MouseRegion(
+                    onEnter: (_) => setState(() {}),
+                    onExit: (_) => setState(() {}),
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const Register()),
+                        );
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.orange, // Color de fondo 
+                        foregroundColor: Colors.white,  // Color del texto
+                        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                      ),
+                      child: const Text('Registrarse'),
+                    ),
+                  ),
+
+                ],
               ),
+            ),
+          ),
+
+          // Texto principal centrado y con estilos personalizados
+          Align(
+            alignment: const Alignment(0, -0.7), // Controla la posición de la columna
+            child: Column(
+              mainAxisSize: MainAxisSize.min, // Ajusta el tamaño de la columna a su contenido
+              children: [
+                Text(
+                  '¿Necesitas un coche?',
+                  style: GoogleFonts.luckiestGuy(
+                    fontSize: 30,
+                    color: Colors.black,
+                    fontWeight: FontWeight.normal,
+                  ),
+                ),
+                Text(
+                  'Tenemos las mejores opciones para ti.',
+                  style: GoogleFonts.luckiestGuy(
+                    fontSize: 20,
+                    color: Colors.black54,
+                    fontWeight: FontWeight.normal,
+                  ),
+                ),
+              ],
             ),
           ),
           
@@ -40,8 +104,8 @@ class _InicioState extends State<Inicio> {
           Center(
             child: Image.asset(
               'assets/img/jeep.png',
-              width: 430,
-              height: 430,
+              width: 200,  // Ajusta el tamaño de la imagen si es muy grande
+              height: 200,
               fit: BoxFit.cover,
             ),
           ),
