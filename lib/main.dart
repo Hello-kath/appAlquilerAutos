@@ -12,11 +12,9 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      debugShowCheckedModeBanner: false,//para borrar la etiqueta 
-      home: Scaffold(
-        body: Inicio(),
-        
-      ),
+      debugShowCheckedModeBanner: false, // Para borrar la etiqueta
+      home: Inicio(), // Pantalla inicial
+    
     );
   }
 }

@@ -4,7 +4,7 @@ class PaymentScreen extends StatelessWidget {
   final String carritoNombre;
   final String precio;
 
-  const PaymentScreen({Key? key, required this.carritoNombre, required this.precio}) : super(key: key);
+  const PaymentScreen({super.key, required this.carritoNombre, required this.precio});
 
   @override
   Widget build(BuildContext context) {

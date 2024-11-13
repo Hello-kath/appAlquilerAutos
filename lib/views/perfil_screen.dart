@@ -24,7 +24,7 @@ class _PerfilState extends State<Perfil> {
             // Imagen de Perfil
             CircleAvatar(
               radius: 50,
-              backgroundImage: AssetImage('assets/images/profile.jpg'), // imagen de perfil
+              backgroundImage: const AssetImage('assets/images/profile.jpg'), // imagen de perfil
               backgroundColor: Colors.orange.shade100,
             ),
             const SizedBox(height: 20),
@@ -44,7 +44,7 @@ class _PerfilState extends State<Perfil> {
             ListTile(
               leading: const Icon(Icons.email, color: Colors.orange),
               title: const Text('Correo electrónico'),
-              subtitle: const Text('juan.perez@ejemplo.com'),
+              subtitle: const Text('katherinevasquez.com'),
               onTap: () {
                 //  editar el correo
               },
@@ -62,7 +62,7 @@ class _PerfilState extends State<Perfil> {
             ListTile(
               leading: const Icon(Icons.location_on, color: Colors.orange),
               title: const Text('Dirección'),
-              subtitle: const Text('Calle Ficticia 123, Ciudad, País'), 
+              subtitle: const Text('Urbanizacion los Robles 123, Popayan, Colombia'), 
               onTap: () {
                 //  editar la dirección
               },

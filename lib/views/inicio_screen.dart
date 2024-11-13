@@ -1,7 +1,7 @@
-
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:autos/views/register_screen.dart';
+import 'package:autos/views/login_screen.dart';
 
 class Inicio extends StatefulWidget {
   const Inicio({super.key});
@@ -37,38 +37,47 @@ class _InicioState extends State<Inicio> {
                 children: [
                   // Botón de Iniciar sesión
                   MouseRegion(
-                    onEnter: (_) => setState(() {}), // Cambia color al hacer hover
+                    onEnter: (_) =>
+                        setState(() {}), // Cambia color al hacer hover
                     onExit: (_) => setState(() {}),
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const Login()));
+                      },
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.orange, // Color de fondo por defecto
+                        backgroundColor:
+                            Colors.orange, // Color de fondo por defecto
                         foregroundColor: Colors.white, // Color del texto
-                        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 20, vertical: 10),
                       ),
                       child: const Text('Iniciar sesión'),
                     ),
                   ),
                   // Botón de Registrarse
-                   MouseRegion(
+                  MouseRegion(
                     onEnter: (_) => setState(() {}),
                     onExit: (_) => setState(() {}),
                     child: ElevatedButton(
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => const Register()),
+                          MaterialPageRoute(
+                              builder: (context) => const Register()),
                         );
                       },
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.orange, // Color de fondo 
-                        foregroundColor: Colors.white,  // Color del texto
-                        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                        backgroundColor: Colors.orange, // Color de fondo
+                        foregroundColor: Colors.white, // Color del texto
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 20, vertical: 10),
                       ),
                       child: const Text('Registrarse'),
                     ),
                   ),
-
                 ],
               ),
             ),
@@ -76,9 +85,11 @@ class _InicioState extends State<Inicio> {
 
           // Texto principal centrado y con estilos personalizados
           Align(
-            alignment: const Alignment(0, -0.7), // Controla la posición de la columna
+            alignment:
+                const Alignment(0, -0.7), // Controla la posición de la columna
             child: Column(
-              mainAxisSize: MainAxisSize.min, // Ajusta el tamaño de la columna a su contenido
+              mainAxisSize: MainAxisSize
+                  .min, // Ajusta el tamaño de la columna a su contenido
               children: [
                 Text(
                   '¿Necesitas un coche?',
@@ -99,12 +110,12 @@ class _InicioState extends State<Inicio> {
               ],
             ),
           ),
-          
+
           // Imagen principal centrada
           Center(
             child: Image.asset(
               'assets/img/jeep.png',
-              width: 200,  // Ajusta el tamaño de la imagen si es muy grande
+              width: 200, // Ajusta el tamaño de la imagen si es muy grande
               height: 200,
               fit: BoxFit.cover,
             ),
@@ -114,7 +125,6 @@ class _InicioState extends State<Inicio> {
     );
   }
 }
-
 
 // Clipper para crear la curva en la parte inferior
 class CurvedBottomClipper extends CustomClipper<Path> {

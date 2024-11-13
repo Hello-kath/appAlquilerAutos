@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:autos/views/login_screen.dart';
 
 class Register extends StatelessWidget {
-  const Register({Key? key}) : super(key: key);
+  const Register({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -77,7 +78,7 @@ class Register extends StatelessWidget {
               ),
               const SizedBox(height: 20),
 
-              //  texto para confirmar contraseña
+              // texto para confirmar contraseña
               TextField(
                 obscureText: true,
                 decoration: InputDecoration(
@@ -99,7 +100,8 @@ class Register extends StatelessWidget {
               // Botón de registro
               ElevatedButton(
                 onPressed: () {
-                  //lógica de registro
+                  // Llamamos a la función para mostrar el diálogo de éxito
+                  _showSuccessDialog(context);
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.orange,
@@ -132,7 +134,10 @@ class Register extends StatelessWidget {
                   TextButton(
                     onPressed: () {
                       // Navegación a la pantalla de inicio de sesión
-                      Navigator.pop(context); //  volver atrás
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const Login()),
+                      );
                     },
                     child: const Text(
                       'Iniciar sesión',
@@ -149,6 +154,35 @@ class Register extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+
+  // ventanita emergente
+  void _showSuccessDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      barrierDismissible: true,  // Permite cerrar el diálogo tocando fuera de él
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('¡Registro exitoso!'),
+          content: const Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(Icons.check_circle, color: Colors.green, size: 40),  // Ícono verde de check
+              SizedBox(width: 10),  // Espacio entre el ícono y el texto
+              Text('Registrado correctamente'),
+            ],
+          ),
+          actions: <Widget>[
+            TextButton(
+              child: const Text('OK'),
+              onPressed: () {
+                Navigator.of(context).pop();  // Cierra el diálogo
+              },
+            ),
+          ],
+        );
+      },
     );
   }
 }

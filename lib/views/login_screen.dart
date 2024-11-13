@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:autos/views/menu_screen.dart';
+import 'package:autos/views/register_screen.dart';
 
 class Login extends StatelessWidget {
-  const Login({Key? key}) : super(key: key);
+  const Login({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -98,11 +100,16 @@ class Login extends StatelessWidget {
               // Botón de inicio de sesión
               ElevatedButton(
                 onPressed: () {
-                  // Aquí iría la lógica de inicio de sesión
+                  //inicio de sesión
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const Menu()),
+                  );
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.orange,
-                  padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 15),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 50, vertical: 15),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(30),
                   ),
@@ -131,7 +138,11 @@ class Login extends StatelessWidget {
                   TextButton(
                     onPressed: () {
                       // Navegación a la pantalla de registro
-                      Navigator.pushNamed(context, '/Login'); //  ruta 
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const Register()),
+                      ); //  ruta
                     },
                     child: const Text(
                       'Registrarse',

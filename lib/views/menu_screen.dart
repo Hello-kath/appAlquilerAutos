@@ -1,20 +1,38 @@
 import 'package:flutter/material.dart';
-import 'package:autos/views/info_screen.dart'; // Asegúrate de que la clase sea Info y esté correctamente importada
-import 'package:autos/views/perfil_screen.dart'; // Asegúrate de importar la pantalla de perfil correctamente
+import 'package:autos/views/info_screen.dart'; 
+import 'package:autos/views/perfil_screen.dart'; 
 
 class Menu extends StatefulWidget {
-  const Menu({Key? key}) : super(key: key);
+  const Menu({super.key});
 
   @override
   _MenuState createState() => _MenuState();
 }
 
 class _MenuState extends State<Menu> {
+  // Lista de imágenes de carritos
+  final List<String> carImages = [
+    'assets/img/carro.jpg',  // Ruta de la imagen local 1
+    'assets/img/jeep.png',  // Ruta de la imagen local 2
+    'assets/img/carro1.png',  // Ruta de la imagen local 3
+    'assets/img/carro2.png',  // Ruta de la imagen local 4
+    'assets/img/carro3.png',  // Ruta de la imagen local 5
+    'assets/img/carro4.png',  // Ruta de la imagen local 6
+    'assets/img/carro5.png',  // Ruta de la imagen local 7
+    'assets/img/carro6.png',  // Ruta de la imagen local 8
+    'assets/img/carro7.png',  // Ruta de la imagen local 9
+    'assets/img/carro8.png',  // Ruta de la imagen local 10
+    'assets/img/carro9.png',  // Ruta de la imagen local 11
+     
+    
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // Barra superior
       appBar: AppBar(
-        backgroundColor: Colors.orange,
+        backgroundColor:Colors.orange,
         elevation: 0,
         leading: IconButton(
           icon: const Icon(Icons.menu, color: Colors.white),
@@ -33,7 +51,7 @@ class _MenuState extends State<Menu> {
                   fillColor: Colors.white,
                   filled: true,
                   border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(30),
+                    borderRadius: BorderRadius.circular(25),
                     borderSide: BorderSide.none,
                   ),
                   prefixIcon: const Icon(Icons.search, color: Colors.orange),
@@ -91,11 +109,11 @@ class _MenuState extends State<Menu> {
         padding: const EdgeInsets.all(10.0),
         child: GridView.builder(
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            crossAxisSpacing: 10,
-            mainAxisSpacing: 10,
+            crossAxisCount: 2,  //3 para 3 columnas
+            crossAxisSpacing: 10,  // Espacio entre las columnas
+            mainAxisSpacing: 10,  // Espacio entre las filas
           ),
-          itemCount: 6, // Número de carritos disponibles
+          itemCount: carImages.length,  // Número de carritos disponibles
           itemBuilder: (context, index) {
             return GestureDetector(
               onTap: () {
@@ -106,16 +124,22 @@ class _MenuState extends State<Menu> {
               },
               child: Card(
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15.0),
+                  borderRadius: BorderRadius.circular(12.0),
                 ),
-                color: Colors.orange.shade100,
+                color: const Color.fromARGB(255, 244, 230, 181),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Icon(Icons.directions_car, size: 50, color: Colors.orange),
+                    // Reemplazar el ícono del carro por una imagen
+                    Image.asset(
+                      carImages[index],  // Ruta de la imagen 
+                      height: 80,          // Ajusta el tamaño de la imagen
+                      width: 80,           // Ajusta el tamaño de la imagen
+                      fit: BoxFit.cover,   // Ajuste de la imagen
+                    ),
                     const SizedBox(height: 10),
                     Text(
-                      'Carrito ${index + 1}', // Corrección: el índice se usa dinámicamente
+                      'Carrito ${index + 1}', // Texto con el índice
                       style: const TextStyle(fontSize: 18, color: Colors.black),
                     ),
                     const Text(
@@ -132,7 +156,7 @@ class _MenuState extends State<Menu> {
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.orange,
-                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        padding: const EdgeInsets.symmetric(horizontal: 15),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20),
                         ),
@@ -152,4 +176,5 @@ class _MenuState extends State<Menu> {
     );
   }
 }
+
 
